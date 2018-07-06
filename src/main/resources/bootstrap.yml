@@ -1,0 +1,7 @@
+spring:
+  profiles: development
+  cloud:
+    config:
+      name: schoolMgmt  #property file starts with mosaic like sample-[loca]
+      uri: http://localhost:8083/
+      failFast: false
