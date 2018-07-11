@@ -1,0 +1,28 @@
+{
+  "rollNo": "1",
+  "firstName": "Raghav",
+  "age": "28",
+  "lastName": "Charry",
+  "fatherName": "",
+  "motherName": "",
+  "phoneNumber": "116809",
+  "email": "abc@gmail.com",
+  "presentAddress": {
+    "addressLine1": "Kondapur",
+    "addressLine2": "Kondapur",
+    "cityName": "Hyd",
+    "stateName": "TS",
+    "postalCode": "500045",
+    "countryName": "IND",
+    "verificationStatus": "NOT_VERIFIED"
+  },
+  "permenentAddress": {
+    "addressLine1": "Kondapur",
+    "addressLine2": "Kondapur",
+    "cityName": "Hyd",
+    "stateName": "TS",
+    "postalCode": "500045",
+    "countryName": "IND",
+    "verificationStatus": "NOT_VERIFIED"
+  }
+}

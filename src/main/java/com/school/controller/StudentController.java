@@ -4,29 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.school.service.StudentService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.school.repository.StudentRepository;
-import com.school.student.Student;
+import com.school.dao.Student;
 
-@CrossOrigin(origins = "http://localhost:4200")
+import javax.validation.Valid;
+
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/student")
 public class StudentController {
 
+	/*
+	Service which will do all data
+	retrieval/manipulation work
+	*/
 	@Autowired
-	StudentRepository studentRepository; // Service which will do all data
-											// retrieval/manipulation work
-
+	StudentRepository studentRepository;
+	@Autowired
+	StudentService studentService;
 	List<Student> allStudents = new ArrayList<>();
 
 	@RequestMapping(value = "/allStudents", method = RequestMethod.GET)
@@ -35,7 +37,6 @@ public class StudentController {
 		if (students.isEmpty()) {
 			insertStudents();
 			return new ResponseEntity(HttpStatus.NO_CONTENT);
-
 		}
 		return new ResponseEntity<List<Student>>(students, HttpStatus.OK);
 	}
@@ -60,6 +61,13 @@ public class StudentController {
 			studentRepository.save(s);
 		}
 		return new ResponseEntity<String>("insertion Sucessfully", HttpStatus.OK);
+	}
+	@RequestMapping(value = "/createstudent",consumes = {"application/json"},produces = {
+			"application/json" }, method = RequestMethod.POST)
+	public ResponseEntity<String> insertStudents(@Valid  @RequestBody com.school.model.Student student) {
+		System.out.println("Inside create"+student.getAge());
+		String res = studentService.saveStudent(student);
+		return new ResponseEntity<String>(res, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)

@@ -1,5 +1,9 @@
 package com.school.service;
 
-public class StudentService {
-	
+import com.school.model.Address;
+import com.school.model.Student;
+
+public interface StudentService {
+	String saveStudent(Student student);
+	String saveAddress(Address address, String type, Long studentId);
 }

@@ -28,5 +28,6 @@ dependencies {
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-web-services')
+	compile('org.projectlombok:lombok:1.16.10')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
