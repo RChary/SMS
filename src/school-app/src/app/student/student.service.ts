@@ -10,13 +10,13 @@ import { HttpClientModule} from '@angular/common/http';
 @Injectable()
 export class StudentService {
 
-    private heroesUrl = 'http://localhost:8080/student/allStudents';
+    private getStudents = 'http://localhost:8080/student/allStudents';
 
     private findByIdUrl = 'http://localhost:8080/student/getStudent?id=';
 
     private deleteStudentById = 'http://localhost:8080/student/deleteStudent?id=';
 
-    private static readonly POST_CUSTOMER_URL = 'http://localhost:8080/student/save';
+    private static readonly saveStudent = 'http://localhost:8080/student/save';
 
     private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -28,7 +28,7 @@ export class StudentService {
 
     findAll(): Observable<Student[]> {
         alert(28);
-        return this.http.get<Student[]>(this.heroesUrl);
+        return this.http.get<Student[]>(this.getStudents);
     }
 
 
@@ -38,10 +38,10 @@ export class StudentService {
     }
 
     createStudent(student: Student): Observable<Student> {
-        alert(StudentService.POST_CUSTOMER_URL);
+        alert(StudentService.saveStudent);
         alert(student.firstName);
         console.log(student.firstName);
-        return this.http.post<Student>(StudentService.POST_CUSTOMER_URL, student, { headers: this.headers });
+        return this.http.post<Student>(StudentService.saveStudent, student, { headers: this.headers });
     }
 
 

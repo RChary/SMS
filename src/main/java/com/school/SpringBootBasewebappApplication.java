@@ -10,3 +10,4 @@ public class SpringBootBasewebappApplication {
 		SpringApplication.run(SpringBootBasewebappApplication.class, args);
 	}
 }
+

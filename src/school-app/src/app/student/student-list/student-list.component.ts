@@ -16,7 +16,6 @@ export class StudentListComponent implements OnInit {
     private students: Student[];
 
     ngOnInit() {
-        alert();
         this.getAllUsers();
     }
 
@@ -31,10 +30,10 @@ export class StudentListComponent implements OnInit {
 
         );
     }
-    
+
     redirectNewUserPage(){
         this.router.navigate(['students/create',[]]);
-    }   
+    }
 
     editStudentPage(student: Student) {
         if (student) {
@@ -43,6 +42,7 @@ export class StudentListComponent implements OnInit {
     }
 
     deleteStudent(student: Student) {
+alert(33);
         if (student) {
             this.studentService.deleteByStudentId(student.id).subscribe(
                 res => {
